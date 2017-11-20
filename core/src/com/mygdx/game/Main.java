@@ -50,13 +50,6 @@ public class Main extends ApplicationAdapter {
 			v = Input.getMousePosition();
 			v.y = Gdx.graphics.getHeight() - v.y;
 			int n = model.inSticks(v);
-//			if (n != -1)
-//				ctrlGame.
-//			else {
-//				Vector2 vec = v.cpy();
-//				if (vec.x >= 0 && vec.x <= myOk.getWidth() && vec.y >= 0 && vec.y <= myOk.getWidth())
-//					if (ctrlGame.)
-
 			}
 		}
 	}
