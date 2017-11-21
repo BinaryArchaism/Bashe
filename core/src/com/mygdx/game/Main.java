@@ -30,7 +30,7 @@ public class Main extends ApplicationAdapter {
 		batch.begin();
 
 		batch.draw(myFon, 0, 0);
-		
+
 
 		model.render(batch);
 		batch.end();
@@ -43,6 +43,7 @@ public class Main extends ApplicationAdapter {
 			v = Input.getMousePosition();
 			if (model.inSticks(v) != -1)
 			model.choiceStick(model.inSticks(v));
+
 
 		}
 	}

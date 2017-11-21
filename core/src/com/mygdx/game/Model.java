@@ -42,6 +42,11 @@ public class Model {
         return -1;
     }
 
+    public boolean inOK(Vector2 vect) {
+
+        
+    }
+
     public int getN(){return n;}
 
     public int getM() {return m; }
