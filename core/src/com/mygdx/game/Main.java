@@ -6,26 +6,19 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
-import com.sun.org.apache.xpath.internal.operations.Mod;
-
-import java.util.Random;
 
 public class Main extends ApplicationAdapter {
+	Control control;
 	SpriteBatch batch;
 	Model model;
 	Texture myFon;
-	Texture myOk;
-	Controll ctrlGame;
-	//int
-
 
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
 		model = new Model(20, 4);
-		ctrlGame = new Controll(model);
 		myFon = new Texture("fon.jpg");
-		myOk = new Texture("ok2.jpg");
+		control = new Control(model);
 	}
 
 	@Override
@@ -37,9 +30,9 @@ public class Main extends ApplicationAdapter {
 		batch.begin();
 
 		batch.draw(myFon, 0, 0);
-		batch.draw(myOk, Gdx.graphics.getWidth()/4, Gdx.graphics.getHeight()*1/50);
-		model.render(batch);
+		
 
+		model.render(batch);
 		batch.end();
 	}
 	public void update() {
@@ -48,9 +41,10 @@ public class Main extends ApplicationAdapter {
 
 		if (Input.isClicked()) {
 			v = Input.getMousePosition();
-			v.y = Gdx.graphics.getHeight() - v.y;
-			int n = model.inSticks(v);
-			}
+			if (model.inSticks(v) != -1)
+			model.choiceStick(model.inSticks(v));
+
 		}
 	}
+}
 

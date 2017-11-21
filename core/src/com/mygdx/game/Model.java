@@ -13,12 +13,15 @@ public class Model {
     int m;
     Stick [] sticks;
     int space ;
+    Texture myOk;
 
     public Model(int n, int m) {
         this.N = n;
         this.n = n;
         this.m = m;
         sticks = new Stick[n];
+        myOk = new Texture("ok2.jpg");
+
         space = (Gdx.graphics.getWidth() - 20)  / n;
         for (int i = 0; i < n; i++) {
             sticks[i] = new Stick(new Vector2(i * space +20,Gdx.graphics.getHeight()*1/4) );
@@ -91,6 +94,6 @@ public class Model {
         for (int i = 0; i < N; i++) {
             sticks[i].render(batch);
         }
-
+        batch.draw(myOk, Gdx.graphics.getWidth()/6, Gdx.graphics.getHeight()*1/50);
     }
 }
