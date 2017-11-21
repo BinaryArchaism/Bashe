@@ -12,12 +12,14 @@ public class Main extends ApplicationAdapter {
 	SpriteBatch batch;
 	Model model;
 	Texture myFon;
+	Texture myOk;
 
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
 		model = new Model(20, 4);
 		myFon = new Texture("fon.jpg");
+		myOk = new Texture("ok2.jpg");myOk = new Texture("ok2.jpg");
 		control = new Control(model);
 	}
 
@@ -30,7 +32,7 @@ public class Main extends ApplicationAdapter {
 		batch.begin();
 
 		batch.draw(myFon, 0, 0);
-
+		batch.draw(myOk, Gdx.graphics.getWidth()/6, Gdx.graphics.getHeight()*1/50);
 
 		model.render(batch);
 		batch.end();
@@ -44,6 +46,7 @@ public class Main extends ApplicationAdapter {
 			if (model.inSticks(v) != -1)
 			model.choiceStick(model.inSticks(v));
 
+			System.out.println("YES");
 
 		}
 	}
