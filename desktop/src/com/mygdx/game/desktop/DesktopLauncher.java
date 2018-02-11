@@ -1,5 +1,6 @@
 package com.mygdx.game.desktop;
 
+import com.badlogic.gdx.Files;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
@@ -11,7 +12,7 @@ public class DesktopLauncher {
 		config.title = "Bashe";
 		config.width = 800;
 		config.height = 480;
-		config.addIcon(Gdx.files.);
+		config.addIcon("D:/Coding/Java/Bashe/core/assets/icon.png", Files.FileType.Absolute);
 		config.resizable = false;
 
 		new LwjglApplication(new Main(), config);
