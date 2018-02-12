@@ -3,6 +3,7 @@ package com.mygdx.game;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
@@ -14,6 +15,7 @@ public class Main extends Game {
 	SpriteBatch batch;
 	BitmapFont font;
 	Texture fon;
+	Music music;
 
 	@Override
 	public void create () {
@@ -21,6 +23,7 @@ public class Main extends Game {
 		fon = new Texture(Gdx.files.internal("fon.jpg"));
 		font = new BitmapFont();
 		font.setColor(Color.RED);
+		music = Gdx.audio.newMusic(Gdx.files.internal("music.mp3"));
 		this.setScreen(new MenuScreen(this));
 	}
 
