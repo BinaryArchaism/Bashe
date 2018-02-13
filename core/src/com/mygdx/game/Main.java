@@ -13,16 +13,17 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 public class Main extends Game {
 
 	SpriteBatch batch;
-	BitmapFont font;
 	Texture fon;
+	Texture font;
+	Texture ok;
 	Music music;
 
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
-		fon = new Texture(Gdx.files.internal("fon.jpg"));
-		font = new BitmapFont();
-		font.setColor(Color.RED);
+		fon = new Texture(Gdx.files.internal("fon.png"));
+		font = new Texture(Gdx.files.internal("font.png"));
+		ok = new Texture(Gdx.files.internal("ok.png"));
 		music = Gdx.audio.newMusic(Gdx.files.internal("music.mp3"));
 		this.setScreen(new MenuScreen(this));
 	}
@@ -34,7 +35,9 @@ public class Main extends Game {
 	@Override
 	public void dispose() {
 		batch.dispose();
+		fon.dispose();
 		font.dispose();
+		music.dispose();
 	}
 }
 

@@ -25,6 +25,7 @@ public class GameScreen implements Screen {
 
         game.batch.begin();
             game.batch.draw(game.fon, 0, 0);
+            game.batch.draw(game.ok, 240,-6);
         game.batch.end();
 
     }

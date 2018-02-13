@@ -31,8 +31,7 @@ public class MenuScreen implements Screen {
 
         game.batch.begin();
             game.batch.draw(game.fon, 0, 0);
-            game.font.draw(game.batch, "Bashe game", 365, 300);
-            game.font.draw(game.batch, "Tap to continue", 360, 250);
+            game.batch.draw(game.font, 0, 0);
             game.music.setLooping(true);
             game.music.setVolume(0.05f);
             game.music.play();
