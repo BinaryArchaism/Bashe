@@ -8,13 +8,15 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 public class GameScreen implements Screen {
     final Main game;
 
+    Stick stick;
+
     OrthographicCamera camera;
 
     public GameScreen(final Main game) {
         this.game = game;
 
         camera = new OrthographicCamera();
-        camera.setToOrtho(false, 800, 480);
+        camera.setToOrtho(false, 870, 480);
     }
     @Override
     public void render(float delta) {
@@ -25,7 +27,12 @@ public class GameScreen implements Screen {
 
         game.batch.begin();
             game.batch.draw(game.fon, 0, 0);
-            game.batch.draw(game.ok, 240,-6);
+            game.batch.draw(game.ok, 0,-6);
+
+            for (int i = 0; i < 16; i++) {
+                stick = new Stick(i);
+                game.batch.draw(stick.getStickTex(), 35+ stick.getNumber()* 50, 85);
+            }
         game.batch.end();
 
     }
