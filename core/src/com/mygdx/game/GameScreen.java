@@ -1,14 +1,17 @@
 package com.mygdx.game;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.math.Vector2;
 
 public class GameScreen implements Screen {
     final Main game;
 
-    Stick stick;
+    Model model;
+    Vector2 v;
 
     OrthographicCamera camera;
 
@@ -17,6 +20,7 @@ public class GameScreen implements Screen {
 
         camera = new OrthographicCamera();
         camera.setToOrtho(false, 870, 480);
+        model = new Model();
     }
     @Override
     public void render(float delta) {
@@ -28,13 +32,17 @@ public class GameScreen implements Screen {
         game.batch.begin();
             game.batch.draw(game.fon, 0, 0);
             game.batch.draw(game.ok, 0,-6);
-
-            for (int i = 0; i < 16; i++) {
-                stick = new Stick(i);
-                game.batch.draw(stick.getStickTex(), 35+ stick.getNumber()* 50, 85);
+            model.render(game.batch);
+            if (Gdx.input.justTouched()) {
+                v = getMousepos();
+                if (model.inSticks(v) != -1) model.choiseStick(model.inSticks(v));
             }
         game.batch.end();
 
+    }
+
+    public Vector2 getMousepos() {
+        return new Vector2(Gdx.input.getX(),Gdx.input.getY());
     }
 
     @Override

@@ -2,21 +2,37 @@ package com.mygdx.game;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.math.Vector2;
 
 public class Stick {
     Texture stickTex;
-    private int number;
+    private Vector2 pos;
+    private boolean choised;
 
-    public Stick(int num) {
+    public Stick(int x, int y) {
         this.stickTex = new Texture(Gdx.files.internal("palochka.png"));
-        number = num;
+        pos = new Vector2(x, y);
+    }
+
+    public Vector2 getPos() {
+        return pos;
     }
 
     public Texture getStickTex() {
         return stickTex;
     }
 
-    public int getNumber() {
-        return number;
+    public void setChoised() {
+        if (choised == false) {
+            this.choised = true;
+            pos.y += 30;
+        }
+        else setDeleted();
+    }
+    public void setDeleted() {
+        if (choised == true) {
+            this.choised = false;
+            pos.y -= 30;
+        }
     }
 }
