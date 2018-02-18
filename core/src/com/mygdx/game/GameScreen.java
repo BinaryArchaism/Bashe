@@ -35,7 +35,10 @@ public class GameScreen implements Screen {
             model.render(game.batch);
             if (Gdx.input.justTouched()) {
                 v = getMousepos();
-                if (model.inSticks(v) != -1) model.choiseStick(model.inSticks(v));
+                if (model.inSticks(v) != -1) {
+                    model.choiseStick(model.inSticks(v));
+                    model.delStick(1);
+                }
             }
         game.batch.end();
 

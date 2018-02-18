@@ -35,4 +35,7 @@ public class Stick {
             pos.y -= 30;
         }
     }
+    public void setConfirmed() {
+        stickTex = new Texture("");
+    }
 }

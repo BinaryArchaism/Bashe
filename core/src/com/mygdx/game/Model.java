@@ -32,4 +32,7 @@ public class Model {
         }
         return -1;
     }
+    public void delStick(int i) {
+        sticks[i].setConfirmed();
+    }
 }
