@@ -32,22 +32,13 @@ public class GameScreen implements Screen {
         game.batch.begin();
             game.batch.draw(game.fon, 0, 0);
             game.batch.draw(game.ok, 0,-6);
-            model.render(game.batch);
-            if (Gdx.input.justTouched()) {
-                v = getMousepos();
-                if (model.inSticks(v) != -1) {
-                    model.choiseStick(model.inSticks(v));
-                    model.delStick(1);
-                }
-            }
         game.batch.end();
 
     }
 
-    public Vector2 getMousepos() {
-        return new Vector2(Gdx.input.getX(),Gdx.input.getY());
+    public static SpriteBatch getBatch() {
+        return game.batch;
     }
-
     @Override
     public void show() {
 
