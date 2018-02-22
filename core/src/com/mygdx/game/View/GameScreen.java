@@ -10,8 +10,7 @@ import com.mygdx.game.Model.Model;
 public class GameScreen implements Screen {
     final Main game;
 
-    Model model;
-    Vector2 v;
+    Controller controller;
 
     OrthographicCamera camera;
 
@@ -20,7 +19,7 @@ public class GameScreen implements Screen {
 
         camera = new OrthographicCamera();
         camera.setToOrtho(false, 870, 480);
-        model = new Model();
+        controller = new Controller();
     }
     @Override
     public void render(float delta) {
@@ -32,13 +31,12 @@ public class GameScreen implements Screen {
         game.batch.begin();
             game.batch.draw(game.fon, 0, 0);
             game.batch.draw(game.ok, 0,-6);
+            
+            controller.controllerUpdate(game.batch);
         game.batch.end();
 
     }
 
-    public static SpriteBatch getBatch() {
-        return game.batch;
-    }
     @Override
     public void show() {
 
