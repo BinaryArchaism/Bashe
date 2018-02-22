@@ -1,11 +1,13 @@
 public class Controller {
 
 	Model model;
-	SpriteBatch batch;
 
 	public Controller() {
 		model = new Model();
-		batch = GameScreen.getBatch();
+	}
+
+	public void controllerUpdate() {
+		model.render(GameScreen.getBatch());
 	}
 
     public Vector2 getMousepos() {
