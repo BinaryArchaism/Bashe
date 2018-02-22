@@ -7,11 +7,14 @@ public class Model {
     private Stick[] sticks;
     final int N = 16;
 
+    private static int countOfSticksOnScreen;
+
     public Model() {
         sticks = new Stick[N];
         for (int i = 0; i < N; i++) {
             sticks[i] = new Stick(35 + i*50, 95);
         }
+        countOfSticksOnScreen = 16;
     }
 
     public void choiseStick(int i) {
@@ -23,14 +26,24 @@ public class Model {
             batch.draw(sticks[i].getStickTex(), sticks[i].getPos().x, sticks[i].getPos().y);
         }
     }
+
     public int inSticks(Vector2 vect){
         for (int i = 0; i < N ; i++) {
             Vector2 v = vect.cpy().sub(sticks[i].getPos());
-            if (v.x >= 0 && v.x <= sticks[i].getStickTex().getWidth() && v.y >= 0 && v.y <= sticks[i].getStickTex().getHeight())
+            if (v.x >= 0 && v.x < sticks[i].getStickTex().getWidth() && v.y >= 0 && v.y < sticks[i].getStickTex().getHeight())
                 return i;
         }
         return -1;
     }
+    
     public void delStick(int i) {
+    }
+
+    public static int getCountOfSticksOnScreen() {
+        return countOfSticksOnScreen;
+    }
+
+    public static void minusCount() {
+        countOfSticksOnScreen--;
     }
 }
