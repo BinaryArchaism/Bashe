@@ -5,6 +5,7 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.Vector2;
+import com.mygdx.game.Controller.Controller;
 import com.mygdx.game.Model.Model;
 
 public class GameScreen implements Screen {

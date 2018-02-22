@@ -1,3 +1,10 @@
+package com.mygdx.game.Controller;
+
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector2;
+import com.mygdx.game.Model.Model;
+
 public class Controller {
 
 	Model model;
@@ -9,9 +16,8 @@ public class Controller {
 	public void controllerUpdate(SpriteBatch batch) {
 		model.render(batch);
 		if (Gdx.input.justTouched()) {
-            v = getMousepos();
-            if (model.inSticks(v) != -1) {
-                model.choiseStick(model.inSticks(v));
+            if (model.inSticks(getMousepos()) != -1) {
+                model.choiseStick(model.inSticks(getMousepos()));
                 model.delStick(1);
             }
         }
