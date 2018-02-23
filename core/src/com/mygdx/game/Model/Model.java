@@ -35,8 +35,16 @@ public class Model {
         }
         return -1;
     }
+
+    public int isConfirm(Vector2 vect) {
+        if (vect.y < 450) {
+            return -1;
+        }
+        else return 1;
+    }
     
     public void delStick(int i) {
+        sticks[i].setConfirmed();
     }
 
     public static int getCountOfSticksOnScreen() {

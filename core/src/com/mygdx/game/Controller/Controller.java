@@ -15,9 +15,13 @@ public class Controller {
 
 	public void controllerUpdate(SpriteBatch batch) {
 		model.render(batch);
+		int i = model.inSticks(getMousepos());
 		if (Gdx.input.justTouched()) {
             if (model.inSticks(getMousepos()) != -1) {
                 model.choiseStick(model.inSticks(getMousepos()));
+            }
+            if (model.isConfirm(getMousepos()) != -1) {
+                Model.minusCount();
                 model.delStick(1);
             }
         }
