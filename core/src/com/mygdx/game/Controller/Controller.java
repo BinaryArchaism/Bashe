@@ -15,14 +15,23 @@ public class Controller {
 
 	public void controllerUpdate(SpriteBatch batch) {
 		model.render(batch);
-		int i = model.inSticks(getMousepos());
+		int confirmed[] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+
 		if (Gdx.input.justTouched()) {
+		    int f = 0;
             if (model.inSticks(getMousepos()) != -1) {
                 model.choiseStick(model.inSticks(getMousepos()));
+                if (f == 0) {confirmed[model.inSticks(getMousepos())] = 1; f=1;}
+                else {confirmed[model.inSticks(getMousepos())] = 0; f=0;}
+
             }
             if (model.isConfirm(getMousepos()) != -1) {
                 Model.minusCount();
-                model.delStick(1);
+                for (int i = 0; i < 16; i++) {
+                    if (confirmed[i] == 1) {
+                        model.delStick(i);
+                    }
+                }
             }
         }
 	}
