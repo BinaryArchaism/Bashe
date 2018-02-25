@@ -9,21 +9,23 @@ public class Controller {
 
 	Model model;
 
+    int f = 0;
+
 	public Controller() {
 		model = new Model();
 	}
 
 	public void controllerUpdate(SpriteBatch batch) {
 		model.render(batch);
-		int confirmed[] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 
-		if (Gdx.input.justTouched()) {
-		    int f = 0;
-            if (model.inSticks(getMousepos()) != -1) {
+
+        if () {
+	       int confirmed[] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+	       if (Gdx.input.justTouched()) {  
+             if (model.inSticks(getMousepos()) != -1) {
                 model.choiseStick(model.inSticks(getMousepos()));
                 if (f == 0) {confirmed[model.inSticks(getMousepos())] = 1; f=1;}
                 else {confirmed[model.inSticks(getMousepos())] = 0; f=0;}
-
             }
             if (model.isConfirm(getMousepos()) != -1) {
                 Model.minusCount();
@@ -32,9 +34,18 @@ public class Controller {
                         model.delStick(i);
                     }
                 }
+                model.changeTurn();
             }
         }
+    }
 	}
+
+    public String whosTurn() {
+        if (model.getTurn() == 0)
+            return "First's Player Turn";
+        else
+            return "Second's Player Turn";   
+    }
 
     public Vector2 getMousepos() {
         return new Vector2(Gdx.input.getX(),Gdx.input.getY());

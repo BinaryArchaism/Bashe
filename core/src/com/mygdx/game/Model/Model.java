@@ -6,6 +6,7 @@ import com.badlogic.gdx.math.Vector2;
 public class Model {
     private Stick[] sticks;
     final int N = 16;
+    private int whosTurn;
 
     private static int countOfSticksOnScreen;
 
@@ -15,6 +16,7 @@ public class Model {
             sticks[i] = new Stick(35 + i*50, 95);
         }
         countOfSticksOnScreen = 16;
+        whosTurn = (int) (Math.random() * 2);
     }
 
     public void choiseStick(int i) {
@@ -41,6 +43,15 @@ public class Model {
             return -1;
         }
         else return 1;
+    }
+
+    public void changeTurn() {
+        if (whosTurn == 0) whosTurn = 1;
+        else whosTurn = 0;
+    }
+
+    public int getTurn() {
+        return whosTurn;
     }
     
     public void delStick(int i) {
