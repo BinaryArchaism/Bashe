@@ -38,7 +38,7 @@ public class GameScreen implements Screen {
             
             controller.controllerUpdate(game.batch);
             font.draw(game.batch, "Count of sticks " + Model.getCountOfSticksOnScreen(), 30, 473);
-            font.draw(game.batch, controller.whosTurn(), 750, 473);
+            font.draw(game.batch, controller.whosTurn(), 600, 473);
         game.batch.end();
 
     }
